@@ -1,0 +1,24 @@
+#include <iostream> 
+#include <vector> 
+using namespace std; 
+double calculateTotal(const vector<double>& items) 
+{ 
+double sum = 0; 
+for (double item : items) 
+{ 
+sum += item; 
+} 
+return sum * 1.2; 
+} 
+void processOrder(const vector<double>& items) 
+{ 
+cout << "думаєм..." << endl; 
+double total = calculateTotal(items); 
+cout << "ціна: " << total << endl; 
+} 
+int main() 
+{ 
+vector<double> order = {100, 50, 25}; 
+processOrder(order); 
+return 0; 
+}
