@@ -1,0 +1,27 @@
+#include <iostream> 
+#include <vector> 
+#include <algorithm> 
+using namespace std; 
+vector<int> sortNumbers(const vector<int>& nums) 
+{ 
+vector<int> sortedNums = nums;  
+sort(sortedNums.begin(), sortedNums.end()); 
+return sortedNums; 
+} 
+int main() 
+{ 
+vector<int> nums = {5, 2, 8, 1, 3}; 
+vector<int> sorted = sortNumbers(nums); 
+cout << "Початковий список: "; 
+for (int n : nums) 
+{ 
+cout << n << " "; 
+} 
+cout << endl; 
+cout << "Відсортований список: "; 
+for (int n : sorted) 
+{ 
+cout << n << " "; 
+} 
+return 0; 
+} 
