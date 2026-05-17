@@ -1,0 +1,26 @@
+#include <iostream> 
+#include <vector> 
+using namespace std; 
+vector<int> addItem(const vector<int>& items, int item) 
+{ 
+vector<int> newItems = items; // копія списку 
+newItems.push_back(item); 
+return newItems; 
+} 
+int main() 
+{ 
+vector<int> items = {1, 2, 3}; 
+vector<int> result = addItem(items, 4); 
+cout << "Початковий список: "; 
+for (int x : items) 
+{ 
+cout << x << " "; 
+} 
+cout << endl; 
+cout << "Новий список: "; 
+for (int x : result) 
+{ 
+cout << x << " "; 
+} 
+return 0; 
+} 
