@@ -1,0 +1,40 @@
+#include <iostream> 
+#include <vector> 
+using namespace std; 
+struct Order 
+{ 
+vector<double> items; 
+double discount; 
+}; 
+double calculateTotal(const Order& order) 
+{ 
+double sum = 0; 
+for (double item : order.items) 
+{ 
+sum += item; 
+} 
+return sum; 
+} 
+double applyDiscount(double total, double discount) 
+{ 
+return total * (1 - discount); 
+} 
+double applyTax(double total, double taxRate) 
+{ 
+return total * (1 + taxRate); 
+} 
+int main() 
+{ 
+Order order = { 
+{100, 200, 300}, 
+0.1 
+}; 
+double taxRate = 0.2; 
+double total = calculateTotal(order); 
+double discountedTotal = applyDiscount(total, order.discount); 
+double finalTotal = applyTax(discountedTotal, taxRate); 
+cout << "Сума без знижки: " << total << endl; 
+cout << "Після знижки: " << discountedTotal << endl; 
+cout << "Після податку: " << finalTotal << endl; 
+return 0; 
+} 
