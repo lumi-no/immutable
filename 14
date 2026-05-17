@@ -1,0 +1,25 @@
+#include <iostream> 
+#include <map> 
+using namespace std; 
+int slowFunction(int x) 
+{ 
+return x * x; 
+} 
+int memoizedSlowFunction(int x) 
+{ 
+static map<int, int> cache; 
+if (cache.find(x) != cache.end()) 
+{ 
+return cache[x]; 
+} 
+int result = slowFunction(x); 
+cache[x] = result; 
+return result; 
+} 
+int main() 
+{ 
+cout << memoizedSlowFunction(5) << endl; 
+cout << memoizedSlowFunction(5) << endl; 
+cout << memoizedSlowFunction(6) << endl; 
+return 0; 
+}
