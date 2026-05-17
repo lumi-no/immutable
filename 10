@@ -1,0 +1,15 @@
+#include <iostream> 
+using namespace std; 
+int doubleNumber(int x) 
+{ 
+return x * 2; 
+} 
+int main() 
+{ 
+int result1 = doubleNumber(5) + doubleNumber(5); 
+//переписане 
+int result2 = 10 + 10; 
+cout << result1 << endl; 
+cout << result2 << endl; 
+return 0; 
+} 
