@@ -1,0 +1,54 @@
+#include <iostream> 
+#include <vector> 
+#include <string> 
+using namespace std; 
+struct Transaction 
+{ 
+double amount; 
+string currency; 
+}; 
+vector<Transaction> filterUSD(const vector<Transaction>& transactions) 
+{ 
+vector<Transaction> result; 
+for (const Transaction& transaction : transactions) 
+{ 
+if (transaction.currency == "USD") 
+{ 
+result.push_back(transaction); 
+} 
+} 
+return result; 
+} 
+vector<double> convertToUAH(const vector<Transaction>& transactions, 
+double rate) 
+{ 
+vector<double> result; 
+for (const Transaction& transaction : transactions) 
+{ 
+result.push_back(transaction.amount * rate); 
+} 
+return result; 
+} 
+double sumAmounts(const vector<double>& amounts) 
+{ 
+double sum = 0; 
+for (double amount : amounts) 
+{ 
+sum += amount; 
+} 
+return sum; 
+} 
+int main() 
+{ 
+vector<Transaction> transactions = { 
+{100, "USD"}, 
+{200, "EUR"}, 
+{150, "USD"} 
+}; 
+double rate = 40.0; 
+vector<Transaction> usdTransactions = filterUSD(transactions); 
+vector<double> uahAmounts = convertToUAH(usdTransactions, rate); 
+double total = sumAmounts(uahAmounts); 
+cout << "сума транзакцій у гривнях: " << total << endl; 
+return 0; 
+} 
