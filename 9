@@ -1,0 +1,21 @@
+#include <iostream> 
+using namespace std; 
+bool isMorning(int hour) 
+{ 
+return hour < 12; 
+} 
+int main() 
+{ 
+int hour; 
+cout << "Введіть годину: "; 
+cin >> hour; 
+if (isMorning(hour)) 
+{ 
+cout << "Зараз ранок" << endl; 
+} 
+else 
+{ 
+cout << "Зараз не ранок" << endl; 
+} 
+return 0; 
+} 
