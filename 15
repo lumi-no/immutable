@@ -1,0 +1,45 @@
+#include <iostream> 
+#include <vector> 
+#include <string> 
+using namespace std; 
+struct State 
+{ 
+int value; 
+}; 
+State updateState(const State& state, int newValue) 
+{ 
+State newState = state; 
+newState.value = newValue; 
+return newState; 
+} 
+vector<State> addState(const vector<State>& history, const State& newState) 
+{ 
+vector<State> newHistory = history; 
+newHistory.push_back(newState); 
+return newHistory; 
+} 
+vector<State> undo(const vector<State>& history) 
+{ 
+vector<State> newHistory = history; 
+if (newHistory.size() > 1) 
+{ 
+newHistory.pop_back(); 
+} 
+return newHistory; 
+} 
+int main() 
+{ 
+vector<State> history; 
+State state0 = {0}; 
+history = addState(history, state0); 
+State state1 = updateState(state0, 10); 
+history = addState(history, state1); 
+State state2 = updateState(state1, 20); 
+history = addState(history, state2); 
+State state3 = updateState(state2, 30); 
+history = addState(history, state3); 
+cout << "Поточний стан: " << history.back().value << endl; 
+history = undo(history); 
+cout << "Після undo: " << history.back().value << endl; 
+return 0; 
+} 
