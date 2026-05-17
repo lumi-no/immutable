@@ -1,0 +1,14 @@
+#include <iostream> 
+using namespace std; 
+double calculatePrice(double price, double taxRate) 
+{ 
+return price * (1 + taxRate); 
+} 
+int main() 
+{ 
+double price = 100; 
+double taxRate = 0.2; 
+double result = calculatePrice(price, taxRate); 
+cout << "Ціна з податком: " << result << endl; 
+return 0; 
+} 
