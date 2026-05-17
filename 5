@@ -1,0 +1,28 @@
+#include <iostream> 
+using namespace std; 
+struct User 
+{ 
+string name; 
+int age; 
+}; 
+User updateAge(const User& user, int newAge) 
+{ 
+User newUser = user;  
+newUser.age = newAge; 
+return newUser; 
+} 
+int main() 
+{ 
+User user = {"Alice", 25}; 
+int newAge; 
+cout << "Введіть новий вік: "; 
+cin >> newAge; 
+User updatedUser = updateAge(user, newAge); 
+cout << endl; 
+cout << "Початковий користувач:" << endl; 
+cout << user.name << " " << user.age << endl; 
+cout << endl; 
+cout << "Новий користувач:" << endl; 
+cout << updatedUser.name << " " << updatedUser.age << endl; 
+return 0; 
+}
